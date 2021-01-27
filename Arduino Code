@@ -1,0 +1,43 @@
+/* Body Centric Technologies - OCAD U - Winter 2021
+Music Festival Headband : By Patricia Mwenda
+Created Jan 27th 2021
+Based on:
+Music Reactive LED | Arduino-Sound Sensor :By MechStuff*/
+ 
+int soundsensor = 13;  // defining pin numbers
+
+int REDled1 = 12; 
+int GREENled = 11; 
+int BLUEled = 10; 
+int REDled2 = 9; 
+
+void setup() 
+{
+  pinMode (soundsensor, INPUT);
+  pinMode (REDled1, OUTPUT);
+  pinMode (GREENled, OUTPUT);
+  pinMode (BLUEled, OUTPUT);
+  pinMode (REDled2, OUTPUT);
+}
+
+void loop()
+{
+  int sensorvalue = digitalRead (soundsensor);            //if the sound intensity is higher than threshold which is set  
+                                                          //then sensor would return the value as 1
+  if (sensorvalue == 1)                                    
+  {
+    digitalWrite(REDled1, HIGH);
+    digitalWrite(GREENled, HIGH);
+    digitalWrite(BLUEled, HIGH);
+    digitalWrite(REDled2, HIGH);
+  }
+  
+  else
+  {
+    digitalWrite(REDled1, LOW);
+    digitalWrite(GREENled, LOW);
+    digitalWrite(BLUEled, LOW);
+    digitalWrite(REDled2, LOW);
+  }
+  
+}
